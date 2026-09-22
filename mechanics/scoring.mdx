@@ -1,0 +1,38 @@
+---
+title: "Scoring"
+description: "Server-authoritative, real-time match scoring for players, teams, objectives, and events."
+---
+
+## Player promise
+
+You can understand the current score, how it changed, what earns points, and how close you are to the win condition. The scoreboard is accurate for every player.
+
+## What scoring supports
+
+- eliminations, assists, deaths, streaks, and objective actions;
+- capture, escort, delivery, survival, extraction, and round wins;
+- individual, team, squad, faction, and co-op contribution totals;
+- positive/negative scoring, multipliers, bonuses, penalties, and tie-breakers;
+- visible scoreboards, compact HUD score, post-match summaries, and event feed entries.
+
+## Eiger contract
+
+`EigerScoring` consumes verified gameplay events and turns them into Score Events. An Experience-owned Scoring Policy defines event values, recipients, display rules, score cap, tie-break rules, and relation to match victory. It does not assume that kills are valuable or even possible.
+
+For example, an arena mode awards eliminations. A rescue game awards safe evacuations. A narrative game may use no visible score at all.
+
+## Multiplayer rules
+
+Only the server accepts score events and updates player/team score state. Clients receive replicated score summaries and cosmetic event messages. Awarding must be idempotent so replays, reconnects, or replicated events cannot duplicate points.
+
+## Dependencies and phase
+
+Requires experiences, objectives, teams/squads where relevant, UI, and multiplayer. Basic kill/objective/team score is P0. Detailed contribution, assist attribution, medals, and post-match breakdowns are P1.
+
+## Acceptance checks
+
+- Score changes once and only once for a verified event.
+- Individual, team, and squad totals agree with the scoreboard.
+- Score caps, overtime, ties, and negative scores resolve deterministically.
+- The UI offers a non-color-only indication of rank and team state.
+

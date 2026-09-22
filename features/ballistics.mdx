@@ -1,0 +1,17 @@
+---
+title: "Ballistics and weapon simulation"
+description: "Optional fidelity systems for projects that need more than basic hitscan and projectiles."
+---
+
+## Scope
+
+Projectile drop, travel time, wind, drag, penetration, ricochet, material response, armor interaction, suppression, heat, jams, durability, and firing modes.
+
+## Design
+
+These are selectable firing and impact policies on a weapon definition. Keep the simple arcade path fast and predictable; enable simulation only per experience or weapon family.
+
+## Phase
+
+P2 after profiling, because high-fidelity simulation affects networking, AI, VFX, audio, and performance.
+

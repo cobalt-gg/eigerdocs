@@ -1,0 +1,32 @@
+---
+title: "Technical decisions"
+description: "Decisions to settle early, with defaults that preserve flexibility."
+---
+
+## Recommended defaults
+
+| Decision | Recommended default | Why |
+| --- | --- | --- |
+| Engine baseline | Pin one current Unreal Engine minor version | Stable plugins and reproducible builds matter more than chasing every update. |
+| Code split | C++ contracts plus Blueprint composition | Maintains systems while retaining designer speed. |
+| Packaging | Runtime plugins plus an example game project | Games opt into modules without copying source. |
+| Configuration | Primary Data Assets, gameplay tags, developer settings | Clear references, validation, and source-control-friendly tuning. |
+| Abilities | Gameplay Ability System for replicated/composable effects | Avoid rebuilding prediction, attributes, and effect stacking. |
+| UI | Common UI plus a HUD-slot contract | Supports input-aware navigation and experience-specific HUDs. |
+| Input | Enhanced Input | Supports contextual mappings and rebinding. |
+| Networking | Server authority, client prediction only where needed | Protects fairness and controls replication complexity. |
+| Testing | Functional tests plus small reference maps per module | Keeps features demonstrable and regression-resistant. |
+
+## Questions to answer before Phase 1
+
+1. Which platforms must the first release support: PC only, console, or both?
+2. Is multiplayer a launch requirement or a capability proved through samples?
+3. Will Eiger ship as an internal tool, Marketplace product, or both?
+4. What is the extension model: Blueprint only, C++ plugins, or source access?
+5. What scale is expected for the first battle royale-style game: player count, world size, and session length?
+6. Which accessibility standards and input devices are required at launch?
+
+## Decisions to defer
+
+Defer a specific online-services provider; inventory grid, rarity, and crafting rules; dialogue product or graph format; procedural content; destruction, vehicles, advanced traversal, or custom netcode; and progression, economy, live operations, and monetization systems. Deferring them keeps Eiger genre-flexible.
+

@@ -1,0 +1,21 @@
+---
+title: "Settings and accessibility"
+description: "Persistent player options that make Eiger games comfortable and usable."
+---
+
+## Player promise
+
+You can adjust graphics, audio, controls, interface, accessibility, and gameplay comfort options. Changes preview safely, can be reset, and persist between sessions.
+
+## Categories
+
+- Display: resolution, window mode, brightness, HDR, frame cap, field of view where appropriate.
+- Audio: master, music, effects, voice, dynamic range, captions.
+- Controls: sensitivity, inversion, dead zones, vibration, remapping.
+- Interface: text scale, high contrast, color-blind support, HUD scale, subtitles.
+- Comfort: reduced motion, camera shake, flashing effects, hold/toggle choices.
+
+## Eiger design and phase
+
+`EigerUI` presents settings while `EigerCore` owns versioned profile storage and platform adapters. Every setting declares a safe default and whether it can change at runtime. Baseline settings and accessibility are P0.
+

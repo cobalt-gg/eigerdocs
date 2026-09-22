@@ -1,0 +1,21 @@
+---
+title: "Weapons"
+description: "Data-driven primary, secondary, melee, and special weapons with replaceable firing behavior."
+---
+
+## Player promise
+
+An experience can define what you carry—primary weapon, secondary weapon, melee option, or no weapon—and every item has readable, responsive behavior.
+
+## Eiger design
+
+`EigerWeapons` separates a Weapon Definition from its firing, ammo, reload, recoil, spread, equip, animation, and cosmetic behavior. Primary and secondary are equipment-slot policies, not hard-coded weapon classes. Support hitscan, projectile, beam, shotgun, and melee delivery through one damage contract.
+
+## Configuration
+
+Weapon Data Assets define slot eligibility, fire modes, ammo source, reload policy, spread/recoil curves, range, damage delivery, attachments, sounds, effects, and AI-facing traits.
+
+## Rules and phase
+
+Primary/secondary selection, hitscan, projectile, reload, ammo, and swap flow are P0. Advanced ballistics, penetration, charge mechanics, and weapon crafting are later modules. Damage is server-authoritative.
+

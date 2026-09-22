@@ -1,0 +1,17 @@
+---
+title: "Melee and close combat"
+description: "Optional close-range combat supporting simple strikes through skill-based encounters."
+---
+
+## Scope
+
+Quick melee, charged strikes, combos, blocking, parries, executions, takedowns, thrown weapons, and nonlethal options.
+
+## Design
+
+Melee is a weapon-delivery variant using timing windows, hit traces, animation events, target rules, and the shared damage contract. It must not force a combo system onto firearms-only games.
+
+## Phase
+
+Basic quick melee is P1; parry/combos are P2 and require latency-aware validation.
+

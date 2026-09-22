@@ -1,0 +1,30 @@
+---
+title: "Feature catalog"
+description: "Capability map for Eiger, grouped by priority and dependency."
+---
+
+## Priority model
+
+- **P0 — foundation:** required for the first vertical slice.
+- **P1 — framework release:** required for a useful multi-genre framework.
+- **P2 — expansion:** valuable after the core is proven.
+- **P3 — optional:** build only for a named game or validated demand.
+
+## Feature map
+
+| Area | P0 | P1 | P2 / P3 |
+| --- | --- | --- | --- |
+| Player | Enhanced Input, rebinding, first/third-person camera, locomotion, health/death, settings/accessibility, save/load | Local multiplayer and online-session adapter | Accounts, commerce, telemetry (P3) |
+| Combat | Data-driven weapons, hitscan/projectile/melee, ammo/reload/recoil, inventory, pickups | Attachments, loadouts, rarity, crafting | Ballistics, penetration, destruction (P2) |
+| World | Interactions, doors, objectives, teams, scoring, round flow | Dialogue and quest hooks, abilities, AI perception and spawn points | Squads, encounter director (P2); vehicles, survival, procedural generation (P3) |
+| Multiplayer | Replicated movement, combat, health, inventory; deathmatch and team deathmatch | Round-based tactical mode | Battle royale and co-op (P2); ranked, matchmaking, anti-cheat (P3) |
+| Workflow | Sample maps, Data Asset validation, debug HUD/traces | Functional tests, performance and asset budgets | Editor wizards and templates (P2) |
+
+## Required accessibility baseline
+
+Include subtitles, text scaling, contrast options, reduced motion, controller and keyboard/mouse rebinding, and device-aware input prompts in the P0 slice. Treat these as framework capabilities, not optional polish.
+
+## Definition of done
+
+A module is done only when it has a documented public API, validated configuration assets, a sample map, useful error messages, multiplayer behavior documentation where relevant, critical-path tests, and a clear opt-out path.
+

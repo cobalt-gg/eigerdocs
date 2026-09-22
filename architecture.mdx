@@ -1,0 +1,66 @@
+---
+title: "Architecture"
+description: "A modular structure that keeps genre-specific gameplay separate from reusable foundations."
+---
+
+## Design rule
+
+Eiger owns reusable capabilities. A Cobalt game owns its rules, content, presentation, and overrides.
+
+<Warning>
+  Do not put a specific game's factions, weapons, maps, story, or progression rules in Eiger. Provide extension points instead.
+</Warning>
+
+## Layers
+
+| Layer | Responsibility | Examples |
+| --- | --- | --- |
+| Engine integration | Unreal-facing base types and shared conventions | Game instance, player controller, subsystem registration |
+| Eiger foundation | Systems every supported game can use | Input, camera, save data, settings, tags, event messaging |
+| Gameplay modules | Opt-in mechanics with clean public APIs | Character, inventory, weapons, abilities, interaction |
+| Experience modules | Rule sets that compose gameplay modules | Arcade arena, tactical round, battle royale, story exploration |
+| Cobalt game | Content and project-specific behavior | Maps, Data Assets, UI skin, quests, balance |
+
+## Module boundaries
+
+Create each reusable system as an Unreal plugin. Keep dependencies flowing downward: an experience can depend on gameplay and foundation modules, but a foundation module must never depend on an experience.
+
+```text
+Cobalt game → Experience modules → Gameplay modules → Eiger foundation → Unreal Engine
+```
+
+### Eiger foundation modules
+
+- **Core:** gameplay tags, logging, interfaces, event messaging, developer settings.
+- **Input and camera:** Enhanced Input mappings, device-aware rebinding, first-person and third-person camera rigs.
+- **Player and identity:** local player state, profiles, split-screen policy, online identity adapter.
+- **Persistence:** versioned save games, settings, checkpoints, migration hooks.
+- **UI shell:** Common UI navigation, input prompts, HUD slots, modal handling, accessibility settings.
+
+### Gameplay modules
+
+- **Character:** locomotion, stance, traversal, health, teams, animation interfaces.
+- **Combat:** weapons, damage, projectiles, hitscan traces, recoil, ballistics, feedback.
+- **Abilities:** cooldowns, costs, effects, targeting, passive modifiers. Use Gameplay Ability System when replication, attributes, prediction, or composable effects matter.
+- **Inventory and equipment:** item definitions, slots, pickups, ammo, attachments, loadouts.
+- **Interaction:** usable objects, dialogue triggers, loot containers, doors, objectives.
+- **AI:** perception, teams, behavior interfaces, encounter spawners, navigation helpers.
+
+### Experience modules
+
+An experience is a Data Asset-driven composition of modules and policies. It defines which pawn, camera profile, inventory rules, spawning, HUD, objectives, and win conditions apply to a map or playlist. This keeps battle royale from becoming a dependency of a story game.
+
+## Data, code, and networking
+
+Put tunable values in version-controlled Data Assets: weapons, items, abilities, movement, cameras, HUD, spawning, scoring, and objectives. Use C++ for stable contracts and performance-sensitive code. Use Blueprints for assembled behaviors and content-specific events.
+
+Every gameplay module declares itself local-only, server-authoritative, or replicated with prediction. Servers decide damage, inventory changes, match outcomes, and persistent rewards. Clients predict only responsiveness-critical actions such as movement, weapon feel, and abilities.
+
+## Quality guardrails
+
+- Every module has a sample map and automated smoke test.
+- Public APIs use interfaces, gameplay tags, and events rather than casts to a concrete game class.
+- Save schemas have explicit versions and migration tests.
+- Replicated state has bandwidth budgets and multiplayer coverage.
+- A module can be disabled without breaking unrelated experiences.
+

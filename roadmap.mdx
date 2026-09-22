@@ -1,0 +1,49 @@
+---
+title: "Roadmap"
+description: "A build order that proves Eiger through playable milestones."
+---
+
+## Strategy
+
+Build a thin networked arcade-combat slice first. Then prove the same foundations support a tactical mode and a low-combat narrative scenario. Do not build battle royale until the smaller experiences are stable.
+
+## Phase 0: Product and technical foundation
+
+Choose the Unreal Engine version and platforms. Create the plugin layout, module naming, coding standards, source-control rules, gameplay tags, Data Asset conventions, save-version policy, test map, debug menu, automation path, and performance budgets.
+
+**Exit:** a clean project loads and validates a test experience; adding a module does not require edits to unrelated modules.
+
+## Phase 1: Core playable loop
+
+Build input, rebinding, settings, first- and third-person cameras, basic locomotion, health, damage, death, respawn, interactions, and a checkpoint/profile save.
+
+**Exit:** both camera views use the same character contracts, and a player can complete a simple solo arena loop.
+
+## Phase 2: Combat and two-player proof
+
+Build data-driven weapons, hitscan/projectile/melee paths, inventory, pickups, equipment, replication for core state, a two-player deathmatch map, debug tools, and critical-path tests.
+
+**Exit:** two remote clients complete a round without state mismatches, common replication warnings, or manual setup.
+
+## Phase 3: Experience composition and tactical proof
+
+Create the Experience Data Asset and activation flow. Extract teams, objectives, rounds, spawning, HUD slots, and win conditions. Add the ability/effect layer where it reduces duplication. Build a tactical sample with limited lives, objective play, observer rules, and configurable loadouts.
+
+**Exit:** arcade and tactical modes share foundations but differ through experience modules and data.
+
+## Phase 4: Nontraditional gameplay proof
+
+Add dialogue/quest trigger interfaces and checkpoint flow. Build a narrative exploration sample with interactions, objectives, conversation triggers, and optional combat. Improve AI hooks, save migration, UI, and accessibility coverage.
+
+**Exit:** the narrative sample disables weapons, inventory, and competitive rules without special-case edits to core systems.
+
+## Phase 5: Production hardening
+
+Finish onboarding docs, API examples, sample maps, automated and multiplayer soak tests, profiling and bandwidth budgets, packaging checks, reporting hooks, migrations, and semantic versioning.
+
+**Exit:** a new team can prototype a small Cobalt game from documentation and update Eiger safely.
+
+## Phase 6: Validated expansions
+
+Build battle royale, co-op progression, vehicles, advanced traversal, destruction, survival, online services, matchmaking, moderation, anti-cheat, and live operations only when a real game need justifies each expansion.
+

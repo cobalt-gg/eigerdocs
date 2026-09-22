@@ -1,20 +1,41 @@
 ---
-title: "Introduction"
-description: "Welcome to your project"
+title: "Eiger"
+description: "Cobalt's modular Unreal Engine framework for shooters and story-driven games."
 ---
 
-Write a short description of your product here. What it does, who it's for, and what they can accomplish with it.
+<Info>
+  **Eiger** is part of the **Cobalt** family. This documentation defines the framework before implementation begins.
+</Info>
 
-<Tip>
-  Ready to make this your own? Start by editing this page. Update your `docs.json` file to customize your site. Then fill out the [Quickstart](/quickstart) page.
-</Tip>
+## The product in one sentence
 
-<Card title="Quickstart" icon="rocket" href="/quickstart">
-  This card links to the quickstart page in your project.
-</Card>
-<Card title="Components" icon="puzzle-piece" href="https://mintlify.com/docs/components">
-  Add cards, callouts, steps, tabs, and more to design and structure your pages.
-</Card>
-<Card title="Settings" icon="gear" href="https://mintlify.com/docs/organize/settings">
-  Set your site name, branding, and navigation in the `docs.json` file.
-</Card>
+Eiger is a configurable Unreal Engine foundation that lets you assemble a first-person or third-person game from reusable systems instead of rebuilding core gameplay for every project.
+
+It supports arcade shooters, tactical shooters, battle royale experiences, co-op or competitive modes, and games where combat is only one part of the experience.
+
+## Product principles
+
+- Build features as opt-in modules, not one required game loop.
+- Make common changes available through data and editor tools before code changes.
+- Treat networking, save data, and accessibility as core requirements.
+- Keep a small, polished playable slice working throughout development.
+- Prefer stable contracts between modules over deep dependencies.
+
+<CardGroup cols={2}>
+  <Card title="Architecture" icon="cubes" href="/architecture">
+    Module boundaries, layers, and Unreal-specific implementation guidance.
+  </Card>
+  <Card title="Feature catalog" icon="list-check" href="/feature-catalog">
+    The complete capability map, organized by priority.
+  </Card>
+  <Card title="Roadmap" icon="road" href="/roadmap">
+    A phased order of implementation with concrete exit criteria.
+  </Card>
+  <Card title="First vertical slice" icon="gamepad" href="/vertical-slice">
+    The first game-quality milestone that proves Eiger works.
+  </Card>
+</CardGroup>
+
+## Definition of success
+
+By the first major release, a small team can start a new Cobalt game, choose a camera and movement profile, equip a weapon, configure an ability and game mode, and play it in a networked test level without editing Eiger internals.

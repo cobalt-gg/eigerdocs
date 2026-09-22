@@ -1,0 +1,49 @@
+---
+title: "Teams"
+description: "A match-level allegiance system for friendly rules, objectives, scoring, spawning, and presentation."
+---
+
+## Player promise
+
+You always know who is allied, hostile, neutral, or unaffiliated. Team rules are consistent across combat, objectives, UI, spawning, voice channels, and match results.
+
+## What a team owns
+
+- membership and team identity;
+- name, color, emblem, and UI presentation;
+- friendly-fire, collision, damage, healing, and targeting policy;
+- shared score, objective eligibility, spawn locations, and win condition;
+- team-only map information, chat, pings, and spectator permissions;
+- balancing, assignment, switching, and backfill policy.
+
+A team can represent two sides in a tactical round, several competing factions in an arena, or a co-op group against AI. A solo battle royale experience may have no teams at all.
+
+## Eiger contract
+
+`EigerTeams` exposes a replicated Team Definition and team membership on player state. It publishes affiliation through gameplay tags and an interface so combat, AI, UI, objectives, sessions, and communications can ask “what is our relationship?” without knowing a game mode.
+
+An Experience Data Asset supplies the team policy. That policy defines count, capacity, assignment, balancing, colors, friendly-fire, respawn, and score behavior.
+
+## Assignment policies
+
+- Manual choice with capacity checks.
+- Automatic balancing by count, skill, party, or role.
+- Persistent faction assignment for a campaign.
+- Draft or captain assignment for organized play.
+- Dynamic switching only during approved phases.
+
+## Multiplayer rules
+
+The server assigns and changes membership. Clients receive replicated team state and never decide friendliness, objective ownership, or score eligibility. A team switch must atomically update loadout, spawn, UI, voice/ping channels, and observer permissions.
+
+## Dependencies and phase
+
+Requires player state, experiences, UI, and multiplayer. Basic two-team and free-for-all support belongs in P0. Sophisticated balancing, ranked parties, faction reputation links, and tournament drafting are P1/P2.
+
+## Acceptance checks
+
+- Friendly, enemy, and neutral actors resolve consistently in damage, AI, and UI.
+- Team score and objective eligibility remain server-authoritative.
+- Joining, leaving, switching, death, and travel do not leave stale membership.
+- Team colors have a non-color-only accessibility alternative.
+

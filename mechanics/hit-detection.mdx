@@ -1,0 +1,9 @@
+---
+title: "Hit detection"
+description: "Server-validated rules for deciding whether an attack struck a target."
+---
+## Behavior
+Resolve traces or projectiles against valid collision, apply lag compensation where approved, then create a damage event with impact context.
+## Eiger contract
+Uses combat, collision channels, network timing, and damage. Configure trace policy, hit zones, friendly-fire handling, and rewind limits. Required by all networked combat.
+

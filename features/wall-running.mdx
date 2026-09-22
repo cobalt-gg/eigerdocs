@@ -1,0 +1,21 @@
+---
+title: "Wall running"
+description: "An optional traversal module for fast, expressive movement games."
+---
+
+## Player promise
+
+When a game enables wall running, you can transition from a jump onto valid surfaces, run briefly along them, and exit cleanly into a jump, fall, or another movement state.
+
+## Eiger design
+
+`EigerWallRun` is an optional dependency of the character module. It queries surface tags and physical materials, then publishes state and camera/animation signals. It does not modify base locomotion when disabled.
+
+## Configuration
+
+A Wall Run Profile controls permitted surface angles and tags, entry speed, maximum duration, gravity scale, camera roll, jump impulse, cooldown, and whether repeated surfaces are allowed.
+
+## Multiplayer and phase
+
+Wall-running needs custom movement prediction, server checks for surface validity, and clear anti-exploit limits. Prototype it after the P0 character loop; ship it only after its network tests are reliable.
+

@@ -1,0 +1,21 @@
+---
+title: "Testing and performance"
+description: "Quality gates for correctness, multiplayer behavior, load time, memory, and frame time."
+---
+
+## Test layers
+
+- Unit tests for pure rules and configuration validation.
+- Functional tests for spawning, interaction, damage, inventory, saves, and objectives.
+- Multiplayer tests for replication, prediction, and authority.
+- Sample-map smoke tests for every optional module.
+- Performance captures for CPU, GPU, memory, loading, and network traffic.
+
+## Budgets
+
+Set budgets by target platform before content grows: frame time, memory, package size, map load time, replicated bandwidth, and actor count. Every new module declares its expected cost and test coverage.
+
+## Phase
+
+Smoke tests, critical-path functional tests, and basic profiling are P0. Continuous performance regression tracking and large-scale load testing are P1/P2.
+

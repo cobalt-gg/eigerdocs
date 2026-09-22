@@ -1,0 +1,107 @@
+---
+title: "Foundation plan"
+description: "The first implementation milestone for Eiger: establish an Unreal project that can grow safely."
+---
+
+## Objective
+
+Create the smallest Eiger Unreal project that proves the intended structure: a Cobalt game can load Eiger, activate an experience, and use shared configuration without depending on a particular genre.
+
+This phase creates scaffolding and conventions. It does not attempt to make a game yet.
+
+## First repository layout
+
+```text
+Eiger/
+├── Plugins/
+│   └── Eiger/
+│       ├── EigerCore/
+│       ├── EigerInput/
+│       ├── EigerCamera/
+│       ├── EigerUI/
+│       ├── EigerExperience/
+│       └── EigerDeveloper/
+├── Content/
+│   └── Eiger/
+│       ├── Experiences/
+│       └── Maps/
+├── Source/
+│   └── EigerGame/
+└── Config/
+```
+
+Start with only these six plugins. Add combat, inventory, abilities, AI, and online modules only when their first vertical-slice work begins.
+
+## Initial plugin responsibilities
+
+| Plugin | Owns | Must not own |
+| --- | --- | --- |
+| `EigerCore` | Shared types, gameplay tags, logging, interfaces, developer settings | Character, weapon, game-mode rules |
+| `EigerInput` | Enhanced Input setup, input contexts, rebinding, input-device state | Menu visuals, character actions |
+| `EigerCamera` | Camera profiles and first-/third-person rig contracts | Pawn-specific cameras or weapons |
+| `EigerUI` | Common UI shell, settings, prompts, HUD slots | A game's final art direction or HUD layout |
+| `EigerExperience` | Experience Data Asset, activation, module and policy registration | Match rules, weapons, specific maps |
+| `EigerDeveloper` | Debug commands, validation, diagnostics | Runtime gameplay behavior |
+
+## Initial data assets
+
+Create these assets before implementing a playable pawn:
+
+- `DA_EigerExperience_Base`: base experience contract and validation defaults.
+- `DA_EigerCamera_FirstPerson`: first-person camera profile.
+- `DA_EigerCamera_ThirdPerson`: third-person camera profile.
+- `DA_EigerInput_Default`: default input profile for keyboard/mouse and controller.
+- `DA_EigerUI_Default`: baseline UI and accessibility configuration.
+
+Each asset should have a validation result that says what is missing and how to fix it. A data-driven framework is only pleasant when invalid configuration fails clearly.
+
+## First gameplay tags
+
+Keep the shared tag taxonomy intentionally small:
+
+```text
+Eiger.Experience
+Eiger.Camera.FirstPerson
+Eiger.Camera.ThirdPerson
+Eiger.Input.Device.KeyboardMouse
+Eiger.Input.Device.Gamepad
+Eiger.State.Loading
+Eiger.State.Playing
+Eiger.UI.HUD
+Eiger.UI.Menu
+```
+
+Do not add tags for weapons, factions, teams, abilities, or story states until their owning modules exist.
+
+## First test map
+
+`L_EigerFoundation` should contain only a player start, a default game mode, an experience reference, and a debug overlay. At runtime it must display:
+
+- the active experience;
+- the active camera profile;
+- detected input device;
+- loaded Eiger plugins;
+- any failed configuration validation.
+
+## Work order
+
+1. Create the Unreal project and six empty plugins.
+2. Add module dependencies and compile an empty editor build.
+3. Implement `EigerCore` developer settings, logging category, tags, and public interfaces.
+4. Implement the Experience Data Asset and load it from the game instance or world subsystem.
+5. Add camera and input profile assets with validation.
+6. Add the UI shell, settings save, and diagnostic overlay.
+7. Create `L_EigerFoundation` and an automated smoke test that loads it.
+
+## Exit criteria
+
+- A fresh checkout compiles and opens without manually enabling plugins.
+- `L_EigerFoundation` loads one valid experience and reports its active profiles.
+- Replacing the camera or input Data Asset works without C++ changes.
+- An invalid experience reports a readable editor-time error.
+- The smoke test runs in automation and fails on invalid configuration.
+
+## Deferred on purpose
+
+Do not create the pawn, movement, weapons, multiplayer replication, inventory, abilities, or final menu art in this phase. Those begin only after the experience/configuration seam is demonstrably stable.
+

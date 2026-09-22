@@ -1,0 +1,20 @@
+---
+title: "Maps and level flow"
+description: "Maps activate an experience, load required content, and support clear transitions between play spaces."
+---
+
+## Eiger design
+
+Each map declares an Experience Data Asset, a map policy, spawn sets, level-flow settings, and optional streaming layers. Eiger validates that selected modules and map requirements agree before play begins.
+
+## Supported patterns
+
+- Small arena maps with direct match startup.
+- Round-based maps with staging and observer spaces.
+- Story maps with checkpoints and travel flow.
+- Large streamed worlds only after a concrete scale target exists.
+
+## Phase
+
+Foundation and arena test maps are P0. World Partition policy, procedural maps, and battle royale scale are P2/P3 decisions driven by a real game.
+

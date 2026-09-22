@@ -1,0 +1,17 @@
+---
+title: "Multiplayer and sessions"
+description: "Network-safe gameplay with local testing first and online services behind adapters."
+---
+
+## Eiger design
+
+Eiger supports listen-server testing first and remains compatible with dedicated servers. It separates session discovery, identity, invitations, and hosting from gameplay replication. Game state is server-authoritative; clients predict only responsiveness-critical actions.
+
+## Scope
+
+P0 proves two-player join, travel, replicated movement, combat, inventory, death, and match state. Later work adds dedicated-server deployment, reconnect, parties, cross-platform identity, matchmaking, voice, moderation, and anti-cheat.
+
+## Rule
+
+Every new gameplay module documents what state replicates, who owns it, what clients predict, and the bandwidth budget it consumes.
+

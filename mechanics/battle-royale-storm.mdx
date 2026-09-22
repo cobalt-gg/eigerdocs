@@ -1,0 +1,72 @@
+---
+title: "Battle royale storm"
+description: "A server-authoritative match director that creates escalating pressure through a shifting hazardous storm."
+---
+
+## Player promise
+
+You can always understand where safety is now, where it will be next, how long remains in the current phase, how dangerous the storm is, and whether you have a realistic route to survive.
+
+## What makes it more than a safe zone
+
+The [safe zone](/mechanics/safe-zone) defines the legal playable region. The storm system directs the entire battle royale pacing around that region:
+
+- chooses the initial and subsequent zone centers, radii, and phase timings;
+- transitions between a waiting period and a shrinking period;
+- applies escalating damage or other out-of-zone consequences;
+- controls map, HUD, audio, VFX, lighting, and announcer cues;
+- protects against impossible endings, unreachable zones, and unfair final circles;
+- publishes phase information for loot, contracts, AI, vehicles, and spectator systems.
+
+## Phase model
+
+Each Storm Phase Data Asset includes:
+
+| Setting | Purpose |
+| --- | --- |
+| Safe radius | Final size of the playable area for this phase. |
+| Wait time | Time players have to reposition before contraction begins. |
+| Shrink time | Time used to move from the current radius to the next radius. |
+| Damage model | Damage per second, tick rate, ramp, or non-damage penalty. |
+| Center selection | Random, weighted, authored, or constrained destination policy. |
+| Endgame policy | Minimum radius, moving zone, sudden death, or objective finish. |
+| Presentation profile | Map color, audio intensity, HUD warnings, and accessibility cues. |
+
+An experience combines phase assets into a Storm Schedule. Small custom modes can use two phases. A full battle royale can use a long schedule with early exploration, midgame rotation, and tight endgame pressure.
+
+## Fairness rules
+
+- Generate only reachable next zones; reject water, blocked terrain, or otherwise invalid destinations.
+- Provide enough warning time for the configured map size and expected mobility.
+- Use server-authoritative zone math and replicate a compact phase state to clients.
+- Avoid revealing future circles before the experience’s intended scouting or information rules permit it.
+- Test all phases with walking, vehicle, traversal, downed, and late-join scenarios.
+- Give players non-audio indicators for every critical storm warning.
+
+## Eiger architecture
+
+`EigerBattleRoyaleStorm` is an optional module above `EigerExperience`, map flow, objectives, damage, UI, audio, and multiplayer. It must not become a dependency of tactical, arena, or narrative modes.
+
+Public events include phase announced, contraction started, player entered storm, player exited storm, final phase started, and storm resolved. Other modules subscribe to these events instead of inspecting storm internals.
+
+## Configuration extensions
+
+- **Storm damage:** health damage, shield drain, healing reduction, visibility loss, movement penalty, or inventory decay.
+- **Moving endgame:** a target path or moving circle that prevents static final-cover stalemates.
+- **Multiple hazards:** fire, radiation, flood, cold, gas, darkness, or a story-specific anomaly.
+- **Reveals:** late-phase scan pulses, marked leaders, dynamic objectives, or final extraction.
+- **Accessibility:** high-contrast edge, safe-direction indicator, timing text, captions, and adjustable visual intensity.
+
+## Dependencies and delivery
+
+Requires a large-scale map policy, spawning/drop flow, server-authoritative damage, map/HUD presentation, and multiplayer performance budgets. Prototype with a simple circular gas zone only after the two-player combat loop is stable. Add constrained placements, moving zones, terrain validation, and full presentation only when a battle royale Cobalt experience is funded.
+
+## Acceptance checks
+
+- Every client agrees on current/next phase and storm position.
+- Storm damage is never client-authoritative.
+- The schedule cannot choose an invalid or unreachable final zone.
+- A player has clear visual, audio, and non-audio feedback before and during danger.
+- Spectators and replays reproduce storm state correctly.
+- A load test meets replication and frame-time budgets at the intended player count.
+

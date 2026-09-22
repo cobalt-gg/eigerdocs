@@ -1,0 +1,23 @@
+---
+title: "Camera and perspective"
+description: "Configurable first-person and third-person camera rigs that share one gameplay character."
+---
+
+## Player promise
+
+An experience can be first-person, third-person, or let you switch views without rebuilding the pawn or weapon system.
+
+## Eiger design
+
+`EigerCamera` provides Camera Profile Data Assets. A profile controls view mode, boom distance, offsets, field of view, shoulder selection, collision behavior, look limits, shake policy, and optional sprint/aim changes.
+
+The character exposes camera anchors and gameplay signals. Camera logic never decides damage, animation, or weapon rules.
+
+## Configuration
+
+Ship first-person and third-person profiles first. Add aim, spectator, vehicle, and cinematic profiles later as distinct assets.
+
+## Rules and phase
+
+Camera state is normally local. Only replicate a view choice when other players need it for animation or gameplay. Core profiles are P0.
+

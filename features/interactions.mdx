@@ -1,0 +1,17 @@
+---
+title: "Interaction system"
+description: "A common way to use objects, speak to characters, collect items, and trigger world events."
+---
+
+## Player promise
+
+You receive a clear prompt when an object can be used, and the same control works for doors, pickups, terminals, dialogue, objectives, and context-specific interactions.
+
+## Eiger design
+
+`EigerInteraction` provides an interface for discoverability, eligibility, prompt text, hold/tap behavior, range, priority, and execution. Interaction providers own their specific gameplay result. The UI only renders the selected prompt.
+
+## Rules and phase
+
+The client may highlight a target, but the server validates multiplayer interactions. Basic use, door, and pickup examples are P0; dialogue and complex hacking are P1 extensions.
+

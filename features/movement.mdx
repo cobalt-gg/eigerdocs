@@ -1,0 +1,23 @@
+---
+title: "Character and movement"
+description: "A stable movement baseline with advanced traversal added as optional modules."
+---
+
+## Player promise
+
+Every Eiger game starts with responsive walking, running, jumping, falling, crouching, landing feedback, and configurable movement feel.
+
+## Eiger design
+
+The character module owns a standard locomotion contract, movement states, stamina hooks, stance, animation signals, and network-aware movement. It does not assume a weapon, a camera view, or a competitive mode.
+
+Advanced movement lives in add-on modules: slides, mantles, dashes, double jumps, wall runs, bunnyhopping, grapples, swimming, climbing, and vehicles.
+
+## Configuration
+
+Movement Profile Data Assets define speed, acceleration, air control, jump, crouch, braking, slope rules, and allowed add-ons. An experience selects a profile.
+
+## Rules and phase
+
+Walk/run/jump/crouch are P0. Advanced movement is opt-in and must document prediction and server validation before it is enabled in a multiplayer experience.
+

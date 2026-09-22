@@ -1,0 +1,38 @@
+---
+title: "Leaderboards"
+description: "Persistent, queryable rankings that turn verified match results into player or team history."
+---
+
+## Player promise
+
+You can see what is being ranked, the season or time window, your rank and percentile, how rankings are calculated, and when results update.
+
+## Leaderboard types
+
+- Personal bests: fastest route, highest score, longest streak.
+- Global or regional rankings: score, wins, rating, time, or challenge completion.
+- Friends, clan, squad, seasonal, event, and platform-specific views.
+- Competitive rating ladders with placement, promotion, decay, and anti-abuse policy.
+- Creator or custom-server listings, if modding is supported.
+
+## Eiger contract
+
+`EigerLeaderboards` is a provider adapter, not a database. It accepts a server-verified Result Record after a match or challenge, then lets a selected platform or service store/query ranked data. The UI uses a common result/query model so providers can be swapped.
+
+Define ranking metric, eligibility, region, season, reset date, tie-breaker, privacy rules, anti-cheat requirement, and update cadence in a Leaderboard Definition.
+
+## Integrity and privacy
+
+Never submit a client-claimed score. Competitive leaderboards require server verification, abuse monitoring, result replay/audit data where feasible, and a removal/appeal policy. Respect opt-out, display-name, age, regional, and account-linking requirements.
+
+## Dependencies and phase
+
+Requires scoring or challenge results, profile/identity, UI, and an online service. Personal bests can be P1 with local or platform storage. Global, seasonal, and ranked ladders are P3 live-service work.
+
+## Acceptance checks
+
+- Results include a verifiable source match/challenge record.
+- Duplicate submissions do not create duplicate rankings.
+- Season reset and tie-break behavior are documented and testable.
+- Unavailable service states degrade gracefully without blocking normal play.
+

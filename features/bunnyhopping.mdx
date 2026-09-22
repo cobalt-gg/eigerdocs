@@ -1,0 +1,21 @@
+---
+title: "Bunnyhopping"
+description: "An optional momentum system for games that want high-skill movement."
+---
+
+## Player promise
+
+If enabled, well-timed jumps and air steering preserve or build momentum within the game’s chosen limits. If disabled, jumping remains conventional and predictable.
+
+## Eiger design
+
+`EigerBunnyhop` adds a movement modifier rather than replacing movement. It reads landing timing, horizontal speed, air control, and optional strafe input. Other systems can react to its movement state without knowing its math.
+
+## Configuration
+
+A Bunnyhop Profile defines grace window, speed cap, gain/loss curves, friction rules, repeated-jump behavior, landing assist, and whether the system is visible in tutorials.
+
+## Multiplayer and phase
+
+The server remains authoritative over speed. The module needs prediction tests at high latency and anti-macro-friendly limits. It is P2 because its tuning strongly shapes a game’s identity.
+

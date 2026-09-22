@@ -1,0 +1,39 @@
+---
+title: "Shields"
+description: "A configurable protective layer with its own recharge, break, and counterplay behavior."
+---
+
+## Player promise
+
+You know whether you are protected, how much protection remains, whether it is recharging, what broke it, and how to restore it. Shield feedback is immediate and readable.
+
+## Shield models
+
+- Regenerating energy shield with a damage-delay recharge.
+- Finite armor/shield points restored by pickups or consumables.
+- Directional shield with front, side, and rear values.
+- Temporary ability barrier, personal bubble, or deployable cover.
+- Overshield that decays or expires.
+- Damage-type resistance shield, such as energy, fire, gas, or radiation protection.
+
+## Eiger contract
+
+`EigerShields` is a combat-state layer resolved before health. A Shield Profile defines capacity, layers, damage absorption, recharge delay/rate, break threshold, restoration methods, damage-type rules, and feedback. It can work without inventory through automatic regeneration, or with inventory through batteries/plates.
+
+Shields are separate from the broader [armor mechanic](/mechanics/armor): armor can be static mitigation or consumable plates, while shields commonly absorb damage and recharge. An experience can use either, both, or neither.
+
+## Multiplayer rules
+
+The server resolves shield absorption, depletion, recharge eligibility, and restoration. Clients can predict cosmetic feedback but do not decide whether a shield saved damage. Compact shield state replicates only to viewers who need it.
+
+## Dependencies and phase
+
+Requires damage, health, UI, and multiplayer. A basic regenerating shield is P0/P1 depending on the reference experience. Directional, deployable, and damage-type variants are P1/P2.
+
+## Acceptance checks
+
+- Damage consistently resolves through shields before health when configured.
+- Recharge pauses/restarts according to the profile and remains synchronized online.
+- Break, restore, and low-shield states are accessible without relying only on color or sound.
+- Healing, armor, status effects, and abilities cannot bypass configured shield policy accidentally.
+

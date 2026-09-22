@@ -1,0 +1,17 @@
+---
+title: "Save and profiles"
+description: "Versioned local profiles, settings, checkpoints, and game-owned persistent data."
+---
+
+## Purpose
+
+Eiger saves what it owns—settings, bindings, and generic profile metadata. Each Cobalt game saves its own progression and narrative state through a documented extension point.
+
+## Eiger design
+
+`EigerCore` provides save slots, schema versions, migrations, atomic writes, corruption recovery, and platform storage adapters. A save contributor registers a versioned payload rather than modifying a monolithic save class.
+
+## Rules and phase
+
+Settings persistence and a simple checkpoint flow are P0. Cloud sync, account merging, cross-save conflict resolution, and entitlement recovery are P3.
+

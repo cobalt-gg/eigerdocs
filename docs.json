@@ -1,34 +1,145 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Eiger — Cobalt",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#5B5CE2",
+    "light": "#818CF8",
+    "dark": "#4338CA"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "pages": [
       {
-        "group": "Getting Started",
+        "group": "Eiger blueprint",
         "pages": [
           "index",
-          "quickstart"
+          "architecture",
+          "feature-catalog",
+          "roadmap",
+          "foundation-plan",
+          "idea-bank",
+          "game-ideas",
+          "vertical-slice",
+          "technical-decisions"
+        ]
+      },
+      {
+        "group": "Feature encyclopedia",
+        "pages": [
+          "features/index",
+          "features/input",
+          "features/camera",
+          "features/movement",
+          "features/wall-running",
+          "features/bunnyhopping",
+          "features/ui",
+          "features/settings",
+          "features/main-menu",
+          "features/save-profiles",
+          "features/interactions",
+          "features/maps",
+          "features/ai",
+          "features/weapons",
+          "features/backpack",
+          "features/gadgets",
+          "features/abilities",
+          "features/damage",
+          "features/pickups",
+          "features/experiences",
+          "features/multiplayer",
+          "features/objectives",
+          "features/narrative",
+          "features/progression",
+          "features/developer-tools",
+          "features/testing-performance"
+        ]
+      },
+      {
+        "group": "Expanded feature pages",
+        "pages": [
+          "features/advanced-traversal",
+          "features/stealth",
+          "features/melee",
+          "features/ballistics",
+          "features/destruction",
+          "features/vehicles",
+          "features/world-simulation",
+          "features/crafting-economy",
+          "features/classes-loadouts",
+          "features/spectator-replays",
+          "features/communication",
+          "features/modding",
+          "features/live-operations",
+          "features/achievements-challenges",
+          "features/cosmetics",
+          "features/audio",
+          "features/cinematics-photo",
+          "features/tutorials-training",
+          "features/difficulty-assists",
+          "features/procedural-content",
+          "features/matchmaking-services",
+          "features/large-scale-modes"
+        ]
+      },
+      {
+        "group": "Mechanic library",
+        "pages": [
+          "mechanics/index",
+          "mechanics/slide",
+          "mechanics/mantle",
+          "mechanics/grapple",
+          "mechanics/zip-line",
+          "mechanics/swimming",
+          "mechanics/zero-gravity",
+          "mechanics/dash",
+          "mechanics/lean-prone",
+          "mechanics/fire-modes",
+          "mechanics/reload",
+          "mechanics/recoil-spread",
+          "mechanics/hit-detection",
+          "mechanics/armor",
+          "mechanics/shields",
+          "mechanics/status-effects",
+          "mechanics/down-revive",
+          "mechanics/suppression",
+          "mechanics/equipment-slots",
+          "mechanics/attachments",
+          "mechanics/loot-generation",
+          "mechanics/extraction",
+          "mechanics/round-flow",
+          "mechanics/drop-redeploy",
+          "mechanics/safe-zone",
+          "mechanics/battle-royale-storm",
+          "mechanics/scoring",
+          "mechanics/leaderboards",
+          "mechanics/dialogue",
+          "mechanics/reputation",
+          "mechanics/companions",
+          "mechanics/checkpoints",
+          "mechanics/sound-propagation",
+          "mechanics/weather-time",
+          "mechanics/power-systems",
+          "mechanics/fast-travel",
+          "mechanics/teams",
+          "mechanics/squads",
+          "mechanics/factions",
+          "mechanics/vehicle-seats",
+          "mechanics/building",
+          "mechanics/pings",
+          "mechanics/proximity-chat",
+          "mechanics/spectating",
+          "mechanics/map-voting",
+          "mechanics/mutators"
         ]
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Project blueprint",
+          "href": "/",
+          "icon": "gamepad"
         }
       ]
     }
@@ -40,14 +151,14 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Roadmap",
+        "href": "/roadmap"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "First vertical slice",
+      "href": "/vertical-slice"
     }
   },
   "contextual": {
@@ -63,10 +174,6 @@
     ]
   },
   "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    "socials": {}
   }
 }

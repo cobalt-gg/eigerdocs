@@ -1,0 +1,20 @@
+---
+title: "Experiences and game modes"
+description: "The composition layer that turns Eiger modules into a specific kind of game."
+---
+
+## Core idea
+
+An Experience Data Asset selects enabled modules, player and camera profiles, UI layers, map policy, spawn policy, objective rules, equipment rules, and match flow. It should be possible to make a new mode mostly through data and extension assets.
+
+## Reference experiences
+
+- Arena skirmish: respawns, weapon pickups, score limit.
+- Tactical round: teams, limited lives, objective, observer policy, loadout phase.
+- Narrative exploration: interaction, dialogue, checkpoints, optional combat.
+- Battle royale: a later composition requiring a large-scale world and service plan.
+
+## Phase
+
+The framework shell is P0; arcade and tactical reference experiences are P0/P1. Battle royale is P2 only after the smaller references prove the boundaries.
+

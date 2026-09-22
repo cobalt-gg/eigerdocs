@@ -1,0 +1,43 @@
+---
+title: "First vertical slice"
+description: "The smallest polished reference game that validates Eiger's core promises."
+---
+
+## Reference experience: arena skirmish
+
+The first slice is a compact two-player arena shooter: one map, two weapon archetypes, two spawn areas, and a score limit. Its job is to validate reusable systems, not to become a full game.
+
+## Player journey
+
+1. Launch into a main menu and adjust input, audio, display, subtitles, and accessibility settings.
+2. Start or join a two-player local/network session.
+3. Select a first-person or third-person camera profile.
+4. Spawn with a primary weapon and find a pickup.
+5. Fight, take damage, die, respawn, and see score feedback.
+6. Finish the round and return to the menu with settings preserved.
+
+## Required systems
+
+- Enhanced Input and prompts for keyboard/mouse and controller.
+- Configurable character movement, camera, health, damage, and death.
+- Weapon and item Data Assets.
+- Hitscan rifle and projectile launcher with replicated damage.
+- Pickups, inventory slots, HUD, score, timer, and match state.
+- Listen-server flow and two-client test coverage.
+- Debug overlays for network role, tags, health, weapon state, and latency.
+
+## Explicitly exclude
+
+- accounts, ranked play, matchmaking, commerce, battle pass, or anti-cheat;
+- full bot behaviors, large maps, battle royale zones, vehicles, crafting, or destruction;
+- final art, final animation sets, and platform certification work.
+
+## Acceptance checklist
+
+- The same weapon and player systems operate in both camera views.
+- A designer can create a weapon variation without changing C++.
+- The match completes over a networked two-player session.
+- Damage and score are server-authoritative.
+- Rebinding, subtitles, text scale, and reduced-motion settings persist after restart.
+- The sample map explains how each Eiger module is used.
+

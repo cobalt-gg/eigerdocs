@@ -1,0 +1,50 @@
+---
+title: "Squads"
+description: "A small tactical group that can exist inside a team or stand alone in co-op and battle royale modes."
+---
+
+## Player promise
+
+Your squad is an identifiable small group with clear members, shared tactical information, and mode-specific cooperation tools. You can tell squadmates apart from the wider team.
+
+## What a squad owns
+
+- membership, leader/owner, capacity, invitations, and leave/kick policy;
+- a squad name, marker, color treatment, and member roster;
+- shared pings, map markers, waypoint, optional inventory/loot permissions, and squad-only chat;
+- revive, respawn, redeploy, regroup, and spawn-together policy;
+- party-to-squad mapping before a match and squad persistence across travel where allowed.
+
+Teams and squads are intentionally different. A 24-player team can contain six squads of four. A battle royale can use squads without teams. A tactical 5v5 mode may use teams but no squads.
+
+## Eiger contract
+
+`EigerSquads` exposes a replicated Squad Definition plus player membership. It composes with, but does not require, `EigerTeams`. An Experience Data Asset selects capacity, membership lifecycle, team relationship, shared systems, and leader permissions.
+
+## Core policies
+
+| Policy | Examples |
+| --- | --- |
+| Capacity | Solo, duos, trios, four-player squads, custom size. |
+| Composition | Stay with party, auto-fill, private/invite-only, role-balanced. |
+| Information | Shared pings only, full map sharing, line-of-sight markers, or none. |
+| Recovery | Teammate revive, buy-back/redeploy, wave respawn, permanent elimination. |
+| Loot | Individual, shared, owner-protected, contribution-based, or free-for-all. |
+| Leadership | Cosmetic only, waypoint control, ready check, or lobby management. |
+
+## Multiplayer rules
+
+The server owns membership and squad actions. Pings and revives validate squad relationship server-side. A player changing squads must atomically refresh map visibility, voice/ping routing, UI, respawn eligibility, and team affiliation where squads define teams.
+
+## Dependencies and phase
+
+Requires multiplayer, UI, pings, and player state. Basic duo/trio/four-player grouping is P1. Persistent parties, auto-fill matchmaking, shared loot, redeploy economy, and cross-platform party services are P2/P3.
+
+## Acceptance checks
+
+- A squad can function with or without a parent team.
+- Squad-only information never leaks to nonmembers.
+- Revive/redeploy rules correctly distinguish squadmates, teammates, and enemies.
+- Disconnect, reconnect, match travel, and leader exit have defined outcomes.
+- Squad identification does not rely on color alone.
+

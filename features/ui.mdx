@@ -1,0 +1,21 @@
+---
+title: "UI and HUD"
+description: "A reusable, accessible interface shell with game-specific presentation layered on top."
+---
+
+## Player promise
+
+Menus work with every input device, the HUD communicates what matters, and each Cobalt game can have its own visual identity without replacing Eiger logic.
+
+## Eiger design
+
+`EigerUI` uses Common UI for navigation and input-aware controls. It owns screen routing, modal behavior, notifications, loading states, prompts, pause behavior, and named HUD slots. A game or experience supplies widgets to fill those slots.
+
+## HUD slots
+
+Initial slots are health, armor/status, crosshair, weapon/ammo, equipment, objective, score/time, interaction prompt, notifications, and debug overlay. A story game can omit combat slots; a battle royale game can add zone and squad slots.
+
+## Rules and phase
+
+The UI shell and baseline HUD are P0. Final visual themes and complex social interfaces are game-level work. UI reads replicated gameplay state but never becomes the authority for it.
+

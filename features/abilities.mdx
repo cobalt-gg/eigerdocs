@@ -1,0 +1,21 @@
+---
+title: "Abilities and ultimates"
+description: "Composable active and passive powers, including optional high-impact ultimate abilities."
+---
+
+## Player promise
+
+If a game enables abilities, you understand availability, cost, cooldown, targeting, activation feedback, and counterplay. An ultimate is simply an ability with a different acquisition and presentation policy.
+
+## Eiger design
+
+Use Unreal's Gameplay Ability System for attributes, gameplay effects, tags, prediction, cooldowns, costs, and replication. `EigerAbilities` supplies common activation and UI contracts; individual Cobalt games define their abilities and balance.
+
+## Configuration
+
+Ability definitions declare tags, input, targeter, costs, cooldowns, charges, effects, cancellation, unlock source, and whether they occupy an ability or ultimate slot.
+
+## Phase
+
+Build the module in P1 after weapons and networking are stable. Do not require abilities for experiences that only need conventional shooting or narrative interaction.
+

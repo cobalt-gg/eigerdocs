@@ -1,0 +1,21 @@
+---
+title: "Backpack and inventory"
+description: "A modular item container that can be simple for shooters or rich for exploration games."
+---
+
+## Player promise
+
+If an experience uses a backpack, you can see capacity, organize eligible items, equip what you need, and understand why an item cannot be carried. Experiences that do not need inventory can disable it.
+
+## Eiger design
+
+`EigerInventory` models item definitions, stacks, containers, slots, weight/space constraints, transfer requests, and equipment integration. It begins with a simple list/grid-agnostic container. A visual grid is an optional UI presentation, not the core data model.
+
+## Configuration
+
+A Backpack Profile controls capacity type, slot count, stack limits, auto-pickup, drop behavior, death behavior, and permitted item categories.
+
+## Rules and phase
+
+Basic pickups, ammunition, equipped items, and a simple backpack are P0. Grid packing, weight simulation, crafting ingredients, trading, and secure containers are P1/P2. Server authority validates every transfer.
+

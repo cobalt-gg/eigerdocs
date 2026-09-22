@@ -1,0 +1,17 @@
+---
+title: "Damage, health, and death"
+description: "A server-authoritative combat-state contract for lethal, nonlethal, and narrative experiences."
+---
+
+## Eiger design
+
+The combat-state module owns health, shields/armor, damage events, mitigation, healing, downed state hooks, death, respawn requests, damage feedback, and kill attribution. Damage delivery comes from weapons, abilities, hazards, AI, or world events through one validated contract.
+
+## Configuration
+
+Health profiles define maximum values, regeneration, armor behavior, friendly-fire policy, death policy, respawn delay, and whether an experience uses lethal damage at all.
+
+## Phase
+
+Health, damage, death, respawn, and feedback are P0. Downed/revive, limb damage, status effects, and armor plates are P1 modules.
+

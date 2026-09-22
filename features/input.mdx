@@ -1,0 +1,23 @@
+---
+title: "Input and controls"
+description: "Contextual, rebindable controls for keyboard/mouse, gamepad, and future input devices."
+---
+
+## Player promise
+
+You can use keyboard and mouse or a controller without losing important actions. You can rebind supported actions, restore defaults, and always see prompts that match your active device.
+
+## Eiger design
+
+`EigerInput` owns Enhanced Input actions, mapping contexts, device detection, rebinding, sensitivity, dead zones, inversion, and input prompts. A game contributes actions through a feature-owned input layer rather than editing the base map.
+
+Core actions are movement, look, jump, crouch, interact, pause, primary fire, secondary fire, reload, and equipment selection. Wall-running, gadgets, ultimates, vehicles, and menus add their own contexts only when enabled.
+
+## Configuration
+
+Use an Input Profile Data Asset to define default mappings, action categories, rebindability, and conflicts. Save user overrides per local profile.
+
+## Rules and phase
+
+Input must work offline and in multiplayer. It is P0. Action intent is local; the server validates the resulting gameplay action.
+
